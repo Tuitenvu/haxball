@@ -1762,8 +1762,8 @@ function endGame(winner) {
     let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
-        `?? Possession: ?? ${possessionString}\n` +
-        `?? Action Zone: ?? ${actionString}\n` +
+        `📊 Kiểm soát bóng:  🔴  🔴  ${possessionString}\n` +
+        `📊 Vùng bóng lăn:  🔴  🔴 ${actionString}\n` +
         `${CSString}`,
         null,
         announcementColor,
@@ -2683,11 +2683,11 @@ function getCS(scores) {
 function getCSString(scores) {
     let playersCS = getCS(scores);
     if (playersCS.length == 0) {
-        return "?? No CS";
+        return "🎯 không CS";
     } else if (playersCS.length == 1) {
-        return `?? ${playersCS[0]} had a CS.`;
+        return `🎯 ${playersCS[0]} đã có một CS.`;
     } else {
-        return `?? ${playersCS[0]} and ${playersCS[1]} had a CS.`;
+        return `🎯 ${playersCS[0]} và ${playersCS[1]} đã có một CS.`;
     }
 }
 
