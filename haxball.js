@@ -1772,7 +1772,7 @@ function activateChooseMode() {
     chooseMode = true;
     slowMode = chooseModeSlowMode;
     room.sendAnnouncement(
-        `⏰ Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${chooseModeSlowMode}s.`,
+        `🐢 Slow mode changed to choose mode duration of: ${chooseModeSlowMode}s.`,
         null,
         announcementColor,
         'bold',
@@ -1786,7 +1786,7 @@ function deactivateChooseMode() {
     if (slowMode != defaultSlowMode) {
         slowMode = defaultSlowMode;
         room.sendAnnouncement(
-            '⏰ Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${defaultSlowMode}s.`,
+            `🐢 Slow mode changed to choose mode duration of: ${defaultSlowMode}s.`,
             null,
             announcementColor,
             'bold',
