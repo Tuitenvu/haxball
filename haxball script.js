@@ -289,63 +289,63 @@ Nó có những hạn chế: thời gian AFK tối thiểu 1 phút, tối đa 5 
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command allows you to rename yourself for the leaderboard.`,
+        Lệnh này cho phép bạn đổi tên mình cho bảng xếp hạng.`,
         function: renameCommand,
     },
     games: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most games in the room.`,
+        Lệnh này hiển thị 5 người chơi hàng đầu có nhiều trò chơi nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     wins: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most wins in the room.`,
+        Lệnh này hiển thị 5 người chơi hàng đầu có nhiều chiến thắng nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     goals: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most goals in the room.`,
+        Lệnh này hiển thị 5 cầu thủ hàng đầu có nhiều bàn thắng nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     assists: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most assists in the room.`,
+        Lệnh này hiển thị 5 người chơi hàng đầu có nhiều pha kiến tạo nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     cs: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most CS in the room.`,
+        Lệnh này hiển thị 5 người chơi hàng đầu có nhiều CS nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     playtime: {
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command shows the top 5 players with the most time played in the room.`,
+        Lệnh này hiển thị 5 người chơi hàng đầu có nhiều thời gian chơi nhất trong phòng.`,
         function: statsLeaderboardCommand,
     },
     training: {
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command loads the classic training stadium.`,
+        Lệnh này tải sân vận động đào tạo cổ điển.`,
         function: stadiumCommand,
     },
     classic: {
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command loads the classic stadium.`,
+        Lệnh này tải sân vận động cổ điển.`,
         function: stadiumCommand,
     },
     big: {
