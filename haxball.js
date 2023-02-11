@@ -3025,7 +3025,7 @@ function printPlayerStats(stats) {
 
 function fetchGametimeReport(game) {
     var fieldGametimeRed = {
-        name: 🔴        **RED TEAM STATS**',
+        name: '🔴        **RED TEAM STATS**',
         value: '⭐️ __**Game Time:**__\n\n',
         inline: true,
     };
