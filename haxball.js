@@ -3616,8 +3616,8 @@ room.onStadiumChange = function (newStadiumName, byPlayer) {
     if (byPlayer !== null) {
         if (getRole(byPlayer) < Role.MASTER && currentStadium != 'other') {
             room.sendAnnouncement(
-                `You can't change stadium manually ! Please use the stadium commands.`,
-                byPlayer.id,Bạn không thể thay đổi sân vận động theo cách thủ công! Vui lòng sử dụng các lệnh sân vận động.
+                `Bạn không thể thay đổi sân vận động theo cách thủ công! Vui lòng sử dụng các lệnh sân vận động.`,
+                byPlayer.id,
                 errorColor,
                 'bold',
                 HaxNotification.CHAT
