@@ -1582,7 +1582,7 @@ function removeAdminCommand(player, message) {
             }
             adminList.splice(index);
             room.sendAnnouncement(
-                `${playerAdmin[1]} is not a room admin anymore !`,
+                `${playerAdmin[1]} không còn là quản trị viên phòng nữa !`,
                 null,
                 announcementColor,
                 'bold',
@@ -1590,7 +1590,7 @@ function removeAdminCommand(player, message) {
             );
         } else {
             room.sendAnnouncement(
-                `Incorrect format for your argument. Enter "!help removeadmin" for more information.`,
+                `Định dạng không chính xác cho đối số của bạn. Nhập "!help removeadmin" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1599,7 +1599,7 @@ function removeAdminCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Wrong number of arguments. Enter "!help removeadmin" for more information.`,
+            `Số đối số sai. Nhập "!help removeadmin" để biết thêm thông tin.`,
             player.id,
             errorColor,
             'bold',
@@ -1615,7 +1615,7 @@ function passwordCommand(player, message) {
             roomPassword = '';
             room.setPassword(null);
             room.sendAnnouncement(
-                `The room password has been removed.`,
+                `Mật khẩu phòng đã bị xóa.`,
                 player.id,
                 announcementColor,
                 'bold',
@@ -1625,7 +1625,7 @@ function passwordCommand(player, message) {
         roomPassword = msgArray.join(' ');
         room.setPassword(roomPassword);
         room.sendAnnouncement(
-            `The room password has been set to ${roomPassword}`,
+            `Mật khẩu phòng đã được đặt thành ${roomPassword}`,
             player.id,
             announcementColor,
             'bold',
@@ -1636,7 +1636,7 @@ function passwordCommand(player, message) {
             roomPassword = '';
             room.setPassword(null);
             room.sendAnnouncement(
-                `The room password has been removed.`,
+                `Mật khẩu phòng đã bị xóa.`,
                 player.id,
                 announcementColor,
                 'bold',
@@ -1644,7 +1644,7 @@ function passwordCommand(player, message) {
             );
         } else {
             room.sendAnnouncement(
-                `The room currently does not have a password. Enter "!help password" for more information.`,
+                `Phòng hiện không có mật khẩu. Nhập "!help password" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1676,7 +1676,7 @@ function checkTime() {
         if (drawTimeLimit != 0) {
             goldenGoal = true;
             room.sendAnnouncement(
-                '? First goal wins !',
+                '⚽ Bàn thắng đầu tiên !',
                 null,
                 announcementColor,
                 'bold',
@@ -1722,7 +1722,7 @@ function endGame(winner) {
     if (winner == Team.RED) {
         streak++;
         room.sendAnnouncement(
-            `? Red Team won ${scores.red} - ${scores.blue} ! Current streak: ${streak}`,
+            `🏆 Đội đỏ thắng ${scores.red} - ${scores.blue} 🔴! Chuỗi hiện tại: ${streak}`,
             null,
             redColor,
             'bold',
@@ -1731,7 +1731,7 @@ function endGame(winner) {
     } else if (winner == Team.BLUE) {
         streak = 1;
         room.sendAnnouncement(
-            `? Blue Team won ${scores.blue} - ${scores.red} ! Current streak: ${streak}`,
+            `🏆 Đội xanh thắng ${scores.blue} - ${scores.red} 🔵! Chuỗi hiện tại: ${streak}`,
             null,
             blueColor,
             'bold',
@@ -1740,7 +1740,7 @@ function endGame(winner) {
     } else {
         streak = 0;
         room.sendAnnouncement(
-            '?? Draw limit reached !',
+            '🥇 Đã đạt đến giới hạn rút thăm !',
             null,
             announcementColor,
             'bold',
@@ -1755,8 +1755,8 @@ function endGame(winner) {
     let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
-        `📊 Kiểm soát bóng:  🔴  🔴  ${possessionString}\n` +
-        `📊 Vùng bóng lăn:  🔴  🔴 ${actionString}\n` +
+        `📊 Kiểm soát bóng:  🔴  🔵  ${possessionString}\n` +
+        `📊 Vùng bóng lăn:  🔴  🔵 ${actionString}\n` +
         `${CSString}`,
         null,
         announcementColor,
@@ -1772,7 +1772,7 @@ function activateChooseMode() {
     chooseMode = true;
     slowMode = chooseModeSlowMode;
     room.sendAnnouncement(
-        `?? Slow mode changed to choose mode duration of: ${chooseModeSlowMode}s.`,
+        `⏰ Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${chooseModeSlowMode}s.`,
         null,
         announcementColor,
         'bold',
@@ -1786,7 +1786,7 @@ function deactivateChooseMode() {
     if (slowMode != defaultSlowMode) {
         slowMode = defaultSlowMode;
         room.sendAnnouncement(
-            `?? Slow mode changed to choose mode duration of: ${defaultSlowMode}s.`,
+            '⏰ Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${defaultSlowMode}s.`,
             null,
             announcementColor,
             'bold',
@@ -1823,7 +1823,7 @@ function choosePlayer() {
     }
     if (captain != null) {
         room.sendAnnouncement(
-            "To choose a player, enter his number in the list given or use 'top', 'random' or 'bottom'.",
+            "Để chọn một người chơi, hãy nhập số của anh ấy vào danh sách đã cho hoặc sử dụng 'top', 'random' hoặc 'bottom'.",
             captain.id,
             infoColor,
             'bold',
@@ -1832,7 +1832,7 @@ function choosePlayer() {
         timeOutCap = setTimeout(
             (player) => {
                 room.sendAnnouncement(
-                    `Hurry up ${player.name}, only ${Number.parseInt(String(chooseTime / 2))} seconds left to choose !`,
+                    `🏃‍♀️Nhanh lên ${player.name}, chỉ ${Number.parseInt(String(chooseTime / 2))} giây còn lại để chọn!`,
                     player.id,
                     warningColor,
                     'bold',
@@ -1842,7 +1842,7 @@ function choosePlayer() {
                     (player) => {
                         room.kickPlayer(
                             player.id,
-                            "You didn't choose in time !",
+                            "Bạn đã không chọn đúng lúc !",
                             false
                         );
                     },
@@ -1868,7 +1868,7 @@ function chooseModeFunction(player, message) {
                 redCaptainChoice = 'top';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Top !`,
+                    `${player.name} đã chọn Hàng đầu !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1880,7 +1880,7 @@ function chooseModeFunction(player, message) {
                 redCaptainChoice = 'random';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Random !`,
+                    `${player.name} chọn ngẫu nhiên !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1891,7 +1891,7 @@ function chooseModeFunction(player, message) {
                 redCaptainChoice = 'bottom';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Bottom !`,
+                    `${player.name} chọn dưới !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1900,7 +1900,7 @@ function chooseModeFunction(player, message) {
             } else if (!Number.isNaN(Number.parseInt(msgArray[0]))) {
                 if (Number.parseInt(msgArray[0]) > teamSpec.length || Number.parseInt(msgArray[0]) < 1) {
                     room.sendAnnouncement(
-                        `Your number is invalid !`,
+                        `Số của bạn không hợp lệ !`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1912,7 +1912,7 @@ function chooseModeFunction(player, message) {
                         Team.RED
                     );
                     room.sendAnnouncement(
-                        `${player.name} chose ${teamSpec[Number.parseInt(msgArray[0]) - 1].name} !`,
+                        `${player.name} chọn ${teamSpec[Number.parseInt(msgArray[0]) - 1].name} !`,
                         null,
                         announcementColor,
                         'bold',
@@ -1928,7 +1928,7 @@ function chooseModeFunction(player, message) {
                 blueCaptainChoice = 'top';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Top !`,
+                    `${player.name} chọn trên !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1942,7 +1942,7 @@ function chooseModeFunction(player, message) {
                 blueCaptainChoice = 'random';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Random !`,
+                    `${player.name} chọn ngẫu nhiên !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1953,7 +1953,7 @@ function chooseModeFunction(player, message) {
                 blueCaptainChoice = 'bottom';
                 clearTimeout(timeOutCap);
                 room.sendAnnouncement(
-                    `${player.name} chose Bottom !`,
+                    `${player.name} chọn dưới !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1962,7 +1962,7 @@ function chooseModeFunction(player, message) {
             } else if (!Number.isNaN(Number.parseInt(msgArray[0]))) {
                 if (Number.parseInt(msgArray[0]) > teamSpec.length || Number.parseInt(msgArray[0]) < 1) {
                     room.sendAnnouncement(
-                        `Your number is invalid !`,
+                        `Số của bạn không hợp lệ !`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1974,7 +1974,7 @@ function chooseModeFunction(player, message) {
                         Team.BLUE
                     );
                     room.sendAnnouncement(
-                        `${player.name} chose ${teamSpec[Number.parseInt(msgArray[0]) - 1].name} !`,
+                        `${player.name} chọn ${teamSpec[Number.parseInt(msgArray[0]) - 1].name} !`,
                         null,
                         announcementColor,
                         'bold',
@@ -2067,7 +2067,7 @@ function handleActivityPlayer(player) {
         pComp.inactivityTicks++;
         if (pComp.inactivityTicks == 60 * ((2 / 3) * afkLimit)) {
             room.sendAnnouncement(
-                `? ${player.name}, if you don't move or send a message in the next ${Math.floor(afkLimit / 3)} seconds, you will be kicked !`,
+                `🔈 ${player.name}, nếu bạn không di chuyển hoặc gửi tin nhắn trong lần tiếp theo ${Math.floor(afkLimit / 3)} giây, bạn sẽ bị kicks !`,
                 player.id,
                 warningColor,
                 'bold',
@@ -2358,7 +2358,7 @@ function handlePlayersLeave() {
             }
             if (rageQuitCheck) {
                 room.sendAnnouncement(
-                    "Ragequit detected, game ended.",
+                    "Ragequit đã phát hiện, trò chơi đã kết thúc.",
                     null,
                     infoColor,
                     'bold',
@@ -2851,7 +2851,7 @@ function printRankings(statKey, id = 0) {
     if (leaderboard.length < 5) {
         if (id != 0) {
             room.sendAnnouncement(
-                'Not enough games played yet !',
+                'Chưa đủ trò chơi đã chơi !',
                 id,
                 errorColor,
                 'bold',
@@ -3025,13 +3025,13 @@ function printPlayerStats(stats) {
 
 function fetchGametimeReport(game) {
     var fieldGametimeRed = {
-        name: '??        **RED TEAM STATS**',
-        value: '? __**Game Time:**__\n\n',
+        name: 🔴        **RED TEAM STATS**',
+        value: '⭐️ __**Game Time:**__\n\n',
         inline: true,
     };
     var fieldGametimeBlue = {
-        name: '??       **BLUE TEAM STATS**',
-        value: '? __**Game Time:**__\n\n',
+        name: '🔵       **BLUE TEAM STATS**',
+        value: '⭐️ __**Game Time:**__\n\n',
         inline: true,
     };
     var redTeamTimes = game.playerComp[0].map((p) => [p.player, getGametimePlayer(p)]);
@@ -3062,13 +3062,13 @@ function fetchGametimeReport(game) {
 
 function fetchActionsSummaryReport(game) {
     var fieldReportRed = {
-        name: '??        **RED TEAM STATS**',
-        value: '?? __**Player Stats:**__\n\n',
+        name: '🔴        **RED TEAM STATS**',
+        value: '⭐️ __**Player Stats:**__\n\n',
         inline: true,
     };
     var fieldReportBlue = {
-        name: '??       **BLUE TEAM STATS**',
-        value: '?? __**Player Stats:**__\n\n',
+        name: '🔵       **BLUE TEAM STATS**',
+        value: '⭐️ __**Player Stats:**__\n\n',
         inline: true,
     };
     var goals = [[], []];
@@ -3110,12 +3110,12 @@ function fetchSummaryEmbed(game) {
     var logChannel = gameWebhook;
     var fields = [
         {
-            name: '??        **RED TEAM STATS**',
+            name: '🔴        **RED TEAM STATS**',
             value: '=====================\n\n',
             inline: true,
         },
         {
-            name: '??       **BLUE TEAM STATS**',
+            name: '🔵       **BLUE TEAM STATS**',
             value: '=====================\n\n',
             inline: true,
         },
@@ -3140,7 +3140,7 @@ function fetchSummaryEmbed(game) {
     var objectBodyWebhook = {
         embeds: [
             {
-                title: `?? MATCH REPORT #${getIdReport()}`,
+                title: `🧠 MATCH REPORT #${getIdReport()}`,
                 description:
                     `**${getTimeEmbed(game.scores.time)}** ` +
                     (win == 1 ? '**Red Team** ' : 'Red Team ') + game.scores.red +
@@ -3236,7 +3236,7 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
     if (AFKSet.has(changedPlayer.id) && changedPlayer.team != Team.SPECTATORS) {
         room.setPlayerTeam(changedPlayer.id, Team.SPECTATORS);
         room.sendAnnouncement(
-            `${changedPlayer.name} đã AFK !`,
+            `😪${changedPlayer.name} đã AFK !`,
             null,
             errorColor,
             'bold',
@@ -3305,7 +3305,7 @@ room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
     }
     if (byPlayer != null && getRole(byPlayer) < Role.ADMIN_PERM) {
         room.sendAnnouncement(
-            'You are not allowed to kick/ban players !',
+            'Bạn không được phép đá/cấm người chơi !',
             byPlayer.id,
             errorColor,
             'bold',
@@ -3343,7 +3343,7 @@ room.onPlayerChat = function (player, message) {
         if (command != false && commands[command].roles <= getRole(player)) commands[command].function(player, message);
         else
             room.sendAnnouncement(
-                `The command you tried to enter does not exist for you. Please enter '!help' to get the available commands to you.`,
+                `Lệnh bạn đã cố nhập không tồn tại cho bạn. Vui lòng nhập '!help' để nhận các lệnh có sẵn cho bạn.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -3369,7 +3369,7 @@ room.onPlayerChat = function (player, message) {
     }
     if (!player.admin && muteArray.getByAuth(authArray[player.id][0]) != null) {
         room.sendAnnouncement(
-            `You are muted !`,
+            `Bạn đã bị tắt tiếng!`,
             player.id,
             errorColor,
             'bold',
@@ -3473,7 +3473,7 @@ room.onGamePause = function (byPlayer) {
     if (mentionPlayersUnpause && gameState == State.PAUSE) {
         if (byPlayer != null) {
             room.sendAnnouncement(
-                `Game paused by ${byPlayer.name} !`,
+                `Game bị tạm dừng bởi ${byPlayer.name} !`,
                 null,
                 defaultColor,
                 'bold',
@@ -3481,7 +3481,7 @@ room.onGamePause = function (byPlayer) {
             );
         } else {
             room.sendAnnouncement(
-                `Game paused !`,
+                `Game tạm dừng !`,
                 null,
                 defaultColor,
                 'bold',
@@ -3500,7 +3500,7 @@ room.onGameUnpause = function (byPlayer) {
     if (mentionPlayersUnpause) {
         if (byPlayer != null) {
             room.sendAnnouncement(
-                `Game unpaused by ${byPlayer.name} !`,
+                `Game bỏ tạm dừng bởi ${byPlayer.name} !`,
                 null,
                 defaultColor,
                 'bold',
@@ -3508,7 +3508,7 @@ room.onGameUnpause = function (byPlayer) {
             );
         } else {
             room.sendAnnouncement(
-                `Game unpaused !`,
+                `Game tiếp tục !`,
                 null,
                 defaultColor,
                 'bold',
@@ -3602,7 +3602,7 @@ room.onPlayerAdminChange = function (changedPlayer, byPlayer) {
 room.onKickRateLimitSet = function (min, rate, burst, byPlayer) {
     if (byPlayer != null) {
         room.sendAnnouncement(
-            `It is not allowed to change the kickrate limit. It must stay at "6-0-0".`,
+            `Không được phép thay đổi giới hạn kickrate. Nó phải ở lại "6-0-0".`,
             player.id,
             errorColor,
             'bold',
@@ -3617,7 +3617,7 @@ room.onStadiumChange = function (newStadiumName, byPlayer) {
         if (getRole(byPlayer) < Role.MASTER && currentStadium != 'other') {
             room.sendAnnouncement(
                 `You can't change stadium manually ! Please use the stadium commands.`,
-                byPlayer.id,
+                byPlayer.id,Bạn không thể thay đổi sân vận động theo cách thủ công! Vui lòng sử dụng các lệnh sân vận động.
                 errorColor,
                 'bold',
                 HaxNotification.CHAT
@@ -3625,7 +3625,7 @@ room.onStadiumChange = function (newStadiumName, byPlayer) {
             stadiumCommand(emptyPlayer, `!${currentStadium}`);
         } else {
             room.sendAnnouncement(
-                `Map changed. After you're done with this map, please use the stadium commands.`,
+                `Bản đồ đã thay đổi. Sau khi bạn hoàn thành bản đồ này, vui lòng sử dụng các lệnh của sân vận động.`,
                 byPlayer.id,
                 infoColor,
                 'bold',
