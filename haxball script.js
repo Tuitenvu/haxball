@@ -394,93 +394,86 @@ Nó có những hạn chế: thời gian AFK tối thiểu 1 phút, tối đa 5 
         aliases: ['kicks'],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command kicks all the players from the spectators team, including the player that entered the command. You can give as an argument the reason of the kick.`,
+    Lệnh này loại bỏ tất cả các cầu thủ trong đội khán giả, bao gồm cả cầu thủ đã nhập lệnh. Bạn có thể đưa ra lý do của cú đá như một lý lẽ..`,
         function: kickTeamCommand,
     },
     mute: {
         aliases: ['m'],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command allows to mute a player. He won't be able to talk for a certain duration, and can be unmuted at any time by admins.
-    It takes 2 arguments:
-    Argument 1: #<id> where <id> is the id of the player targeted. This won't work if the player is an admin.
-    Argument 2 (optional): <duration> where <duration> is the duration of the mute in minutes. If no value is provided, the mute lasts for the default duration, ${muteDuration} minutes.
-    Example: !mute #3 20 will mute the player with id 3 for 20 minutes.`,
+        Lệnh này cho phép tắt tiếng người chơi. Anh ta sẽ không thể nói trong một khoảng thời gian nhất định và quản trị viên có thể bật tiếng bất cứ lúc nào.
+    Phải mất 2 đối số:
+    Đối số 1: #<id> trong đó <id> là id của`,
         function: muteCommand,
     },
     unmute: {
         aliases: ['um'],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command allows to unmute someone.
-    It takes 1 argument:
-    Argument 1: #<id> where <id> is the id of the muted player.
-    OR
-    Argument 1: <number> where <number> is the number associated with the mute given by the 'muteList' command.
-    Example: !unmute #300 will unmute the player with id 300,
-             !unmute 8 will unmute the n°8 player according to the 'muteList' command.`,
+        Lệnh này cho phép bật tiếng ai đó.
+    Phải mất 1 đối số:
+    Đối số 1: #<id> trong đó <id> là id của trình phát bị tắt tiếng.
+    HOẶC
+    Đối số 1: <số> trong đó <số> là số được liên kết `,
         function: unmuteCommand,
     },
     mutes: {
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command shows the list of muted players.`,
+        Lệnh này hiển thị danh sách những người chơi bị tắt tiếng.`,
         function: muteListCommand,
     },
     clearbans: {
         aliases: [],
         roles: Role.MASTER,
         desc: `
-	This command unbans everyone. It also can unban one player in particular, by adding his ID as an argument.`,
+	Lệnh này bỏ cấm tất cả mọi người. Nó cũng có thể bỏ cấm một người chơi cụ thể bằng cách thêm ID của anh ta làm đối số.`,
         function: clearbansCommand,
     },
     bans: {
         aliases: ['banlist'],
         roles: Role.MASTER,
         desc: `
-    This command shows all the players that were banned and their IDs.`,
+    Lệnh này hiển thị tất cả những người chơi đã bị cấm và ID của họ.`,
         function: banListCommand,
     },
     admins: {
         aliases: ['adminlist'],
         roles: Role.MASTER,
         desc: `
-    This command shows all the players that are permanent admins.`,
+    Lệnh này hiển thị tất cả những người chơi là quản trị viên lâu dài.`,
         function: adminListCommand,
     },
     setadmin: {
         aliases: ['admin'],
         roles: Role.MASTER,
         desc: `
-    This command allows to set someone as admin. He will be able to connect as admin, and can be removed at any time by masters.
-It takes 1 argument:
-Argument 1: #<id> where <id> is the id of the player targeted.
-Example: !setadmin #3 will give admin to the player with id 3.`,
+    Lệnh này cho phép đặt ai đó làm quản trị viên. Anh ta sẽ có thể kết nối với tư cách quản trị viên và có thể bị xóa bất cứ lúc nào bởi các bậc thầy.
+Phải mất 1 đối số:
+Đối số 1: #<id> trong đó <id> là id của người chơi t`,
         function: setAdminCommand,
     },
     removeadmin: {
         aliases: ['unadmin'],
         roles: Role.MASTER,
         desc: `
-	This command allows to remove someone as admin.
-It takes 1 argument:
-Argument 1: #<id> where <id> is the id of the player targeted.
-OR
-Argument 1: <number> where <number> is the number associated with the admin given by the 'admins' command.
-Example: !removeadmin #300 will remove admin to the player with id 300,
-         !removeadmin 2 will remove the admin n°2 according to the 'admins' command.`,
+	Lệnh này cho phép xóa ai đó với tư cách quản trị viên.
+Phải mất 1 đối số:
+Đối số 1: #<id> trong đó <id> là id của người chơi được nhắm mục tiêu.
+HOẶC
+Đối số 1: <số> trong đó <số> là số được liên kết với`,
         function: removeAdminCommand,
     },
     password: {
         aliases: ['pw'],
         roles: Role.MASTER,
         desc: `
-        This command allows to add a password to the room.
-    It takes 1 argument:
-    Argument 1: <password> where <password> is the password you want for the room.
+        Lệnh này cho phép thêm mật khẩu vào phòng.
+    Phải mất 1 đối số:
+    Đối số 1: <mật khẩu> trong đó <mật khẩu> là mật khẩu bạn muốn cho phòng.
     
-    To remove the room password, simply enter '!password'.`,
+    Để xóa mật khẩu phòng, sim`,
         function: passwordCommand,
     },
 };
