@@ -7,8 +7,8 @@ const maxPlayers = 12;
 const roomPublic = true;
 const token = "thr1.AAAAAGPnCSoOXNIGgfC-cA.L36gl7QZq1Q"; // Insert token here
 
-var roomWebhook = ''; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
-var gameWebhook = ''; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
+var roomWebhook = 'https://discord.com/api/webhooks/1073953644187238431/VRmMisec6mY9SgSLMUPhksOgD9-4FJ-t5BaikuT0YCrsxeHdTUS2nA-SMPWne-j6GRgS'; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
+var gameWebhook = 'https://discord.com/api/webhooks/1073953644187238431/VRmMisec6mY9SgSLMUPhksOgD9-4FJ-t5BaikuT0YCrsxeHdTUS2nA-SMPWne-j6GRgS'; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
 var fetchRecordingVariable = true;
 var timeLimit = 3;
 var scoreLimit = 3;
