@@ -7,8 +7,8 @@ const maxPlayers = 12;
 const roomPublic = true;
 const token = "thr1.AAAAAGPmWKEEAVyPEZfH4g.A0IPTCm34JM"; // Insert token here
 
-var roomWebhook = ''; // this webhook is used to send the details of the room (chat, join, leave) ; it should be in a private discord channel
-var gameWebhook = ''; // this webhook is used to send the summary of the games ; it should be in a public discord channel
+var roomWebhook = ''; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
+var gameWebhook = ''; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
 var fetchRecordingVariable = true;
 var timeLimit = 3;
 var scoreLimit = 3;
@@ -108,7 +108,7 @@ class MutePlayer {
     setDuration(minutes) {
         this.unmuteTimeout = setTimeout(() => {
             room.sendAnnouncement(
-                `You have been unmuted.`,
+                `Bạn đã không bị tắt tiếng.`,
                 this.playerId,
                 announcementColor,
                 "bold",
@@ -246,8 +246,8 @@ var commands = {
         aliases: ['commands'],
         roles: Role.PLAYER,
         desc: `
-	This command shows all the available commands. It also can show the description of a command in particular.
-Example: \'!help bb\' will show the description of the \'bb\' command.`,
+	Lệnh này hiển thị tất cả các lệnh có sẵn. Nó cũng có thể hiển thị mô tả của một lệnh nói riêng.
+Ví dụ: \'! Help bb\' sẽ hiển thị mô tả của lệnh \'bb\'.`,
         function: helpCommand,
     },
     claim: {
@@ -260,29 +260,29 @@ Example: \'!help bb\' will show the description of the \'bb\' command.`,
         aliases: [],
         roles: Role.PLAYER,
         desc: `
-        This command makes you go AFK.
-    It has constraints: 1 minute minimum of AFK time, 5 minutes maximum and 10 minutes cooldown.`,
+        Lệnh này khiến bạn đi AFK.
+Nó có những hạn chế: thời gian AFK tối thiểu 1 phút, tối đa 5 phút và thời gian hồi chiêu 10 phút`,
         function: afkCommand,
     },
     afks: {
         aliases: ['afklist'],
         roles: Role.PLAYER,
         desc: `
-        This command shows all the players that are AFK.`,
+        Lệnh này hiển thị tất cả những người chơi AFK.`,
         function: afkListCommand,
     },
     bb: {
         aliases: ['bye', 'gn', 'cya'],
         roles: Role.PLAYER,
         desc: `
-	This command makes you leave instantly (use recommended).`,
+	Lệnh này khiến bạn rời đi ngay lập tức (khuyến nghị sử dụng).`,
         function: leaveCommand,
     },
     me: {
         aliases: ['stat', 'stats'],
         roles: Role.PLAYER,
         desc: `
-        This command shows your global stats in the room.`,
+        Lệnh này hiển thị số liệu thống kê toàn cầu của bạn trong phòng.`,
         function: globalStatsCommand,
     },
     rename: {
