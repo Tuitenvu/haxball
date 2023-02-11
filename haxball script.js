@@ -2,10 +2,10 @@
 
 /* ROOM */
 
-const roomName = 'Champion League for VN 😈🐲';
+const roomName = '🟣Leauge 4v4🟣';
 const maxPlayers = 12;
 const roomPublic = true;
-const token = "thr1.AAAAAGPmWKEEAVyPEZfH4g.A0IPTCm34JM"; // Insert token here
+const token = "thr1.AAAAAGPnCSoOXNIGgfC-cA.L36gl7QZq1Q"; // Insert token here
 
 var roomWebhook = ''; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
 var gameWebhook = ''; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
@@ -352,42 +352,42 @@ Nó có những hạn chế: thời gian AFK tối thiểu 1 phút, tối đa 5 
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-        This command loads the big stadium.`,
+        Lệnh này tải sân vận động lớn`,
         function: stadiumCommand,
     },
     rr: {
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command restarts the game.`,
+    Lệnh này khởi động lại trò chơi.`,
         function: restartCommand,
     },
     rrs: {
         aliases: [],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command swaps the teams and restarts the game.`,
+    Lệnh này hoán đổi các đội và bắt đầu lại trò chơi.`,
         function: restartSwapCommand,
     },
     swap: {
         aliases: ['s'],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command swaps the teams when the game is stopped.`,
+    Lệnh này hoán đổi các đội khi trò chơi dừng lại.`,
         function: swapCommand,
     },
     kickred: {
         aliases: ['kickr'],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command kicks all the players from the red team, including the player that entered the command. You can give as an argument the reason of the kick.`,
+    Lệnh này loại bỏ tất cả các cầu thủ của đội đỏ, bao gồm cả cầu thủ đã nhập lệnh. Bạn có thể đưa ra lý do của cú đá như một lý lẽ.`,
         function: kickTeamCommand,
     },
     kickblue: {
         aliases: ['kickb'],
         roles: Role.ADMIN_TEMP,
         desc: `
-    This command kicks all the players from the blue team, including the player that entered the command. You can give as an argument the reason of the kick.`,
+    Lệnh này loại bỏ tất cả những người chơi từ đội xanh, bao gồm cả người chơi đã nhập lệnh. Bạn có thể đưa ra lý do của cú đá như một lý lẽ.`,
         function: kickTeamCommand,
     },
     kickspec: {
@@ -1006,7 +1006,7 @@ function afkCommand(player, message) {
             } else {
                 AFKSet.delete(player.id);
                 room.sendAnnouncement(
-                    `?? ${player.name} is not AFK anymore !`,
+                    `😁 ${player.name} không AFK nữa !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1053,7 +1053,7 @@ function afkCommand(player, message) {
                 }
                 room.setPlayerTeam(player.id, Team.SPECTATORS);
                 room.sendAnnouncement(
-                    `?? ${player.name} is now AFK !`,
+                    `😪 ${player.name} đang afk!`,
                     null,
                     announcementColor,
                     'bold',
@@ -2775,7 +2775,7 @@ function getGoalString(team) {
     if (goalAttribution[0] != null) {
         if (goalAttribution[0].team == team) {
             if (goalAttribution[1] != null && goalAttribution[1].team == team) {
-                goalString = `? ${getTimeGame(scores.time)} Goal by ${goalAttribution[0].name} ! Assist by ${goalAttribution[1].name}. Goal speed : ${ballSpeed.toFixed(2)}km/h.`;
+                goalString = `⚽ ${getTimeGame(scores.time)} Ghi bàn bơi ${goalAttribution[0].name}💪 ! Hổ trợ bởi ${goalAttribution[1].name}🤝🏻. Tốc độ bóng : ${ballSpeed.toFixed(2)}km/h.`;
                 game.goals.push(
                     new Goal(
                         scores.time,
@@ -2785,19 +2785,19 @@ function getGoalString(team) {
                     )
                 );
             } else {
-                goalString = `? ${getTimeGame(scores.time)} Goal by ${goalAttribution[0].name} ! Goal speed : ${ballSpeed.toFixed(2)}km/h.`;
+                goalString = `⚽ ${getTimeGame(scores.time)} Ghi bàn bởi ${goalAttribution[0].name} 💪! Tốc độ bóng : ${ballSpeed.toFixed(2)}km/h.`;
                 game.goals.push(
                     new Goal(scores.time, team, goalAttribution[0], null)
                 );
             }
         } else {
-            goalString = `?? ${getTimeGame(scores.time)} Own goal by ${goalAttribution[0].name} ! Goal speed : ${ballSpeed.toFixed(2)}km/h.`;
+            goalString = `😭 ${getTimeGame(scores.time)} Phản lưới nhà bởi ${goalAttribution[0].name} 😆! Tốc độ bóng : ${ballSpeed.toFixed(2)}km/h.`;
             game.goals.push(
                 new Goal(scores.time, team, goalAttribution[0], null)
             );
         }
     } else {
-        goalString = `? ${getTimeGame(scores.time)} Goal for ${team == Team.RED ? 'red' : 'blue'} team ! Goal speed : ${ballSpeed.toFixed(2)}km/h.`;
+        goalString = `⚽ ${getTimeGame(scores.time)} mục tiêu cho ${team == Team.RED ? 'red' : 'blue'} team 💪! Tốc độ bóng : ${ballSpeed.toFixed(2)}km/h.`;
         game.goals.push(
             new Goal(scores.time, team, null, null)
         );
@@ -3199,7 +3199,9 @@ room.onPlayerJoin = function (player) {
         `
 █░█░█ █▀▀ █░░ █░░ █▀▀ █▀█ █▀▄▀█ █▀▀
 ▀▄▀▄▀ ██▄ █▄▄ █▄▄ █▄▄ █▄█ █░▀░█ ██▄
-Hello Player in server`,
+👋🏻 Chào mừng bạn đến Server 👋🏻
+⌨️ Gõ "!help" để xem các lệnh của phòng !! ⌨️
+`,
         player.id,
         welcomeColor,
         'bold',
@@ -3209,7 +3211,7 @@ Hello Player in server`,
     updateAdmins();
     if (masterList.findIndex((auth) => auth == player.auth) != -1) {
         room.sendAnnouncement(
-            `Master ${player.name} has connected to the room !`,
+            `Master ${player.name} đã kết nối với phòng !`,
             null,
             announcementColor,
             'bold',
@@ -3218,7 +3220,7 @@ Hello Player in server`,
         room.setPlayerAdmin(player.id, true);
     } else if (adminList.map((a) => a[0]).findIndex((auth) => auth == player.auth) != -1) {
         room.sendAnnouncement(
-            `Admin ${player.name} has connected to the room !`,
+            `Admin ${player.name} đã ngắt kết nối với phòng !`,
             null,
             announcementColor,
             'bold',
@@ -3241,7 +3243,7 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
     if (AFKSet.has(changedPlayer.id) && changedPlayer.team != Team.SPECTATORS) {
         room.setPlayerTeam(changedPlayer.id, Team.SPECTATORS);
         room.sendAnnouncement(
-            `${changedPlayer.name} is AFK !`,
+            `${changedPlayer.name} đã AFK !`,
             null,
             errorColor,
             'bold',
