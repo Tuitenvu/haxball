@@ -5,9 +5,9 @@
 const roomName = '🟣Leauge 4v4🟣';
 const maxPlayers = 12;
 const roomPublic = true;
-const token = "thr1.AAAAAGPnCSoOXNIGgfC-cA.L36gl7QZq1Q"; // Insert token here
+const token = ""; // Insert token here
 
-var roomWebhook = 'https://discord.com/api/webhooks/1073958681609261056/9nS3sbsa7CLmx2oA4ew0gSMluXqGh5sx5VhnXTadh8_hQONNDwUZdBfevCOiG2S_zBqQ'; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
+var roomWebhook = ''; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
 var gameWebhook = ''; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
 var fetchRecordingVariable = true;
 var timeLimit = 3;
@@ -724,7 +724,7 @@ function playerChat(player, message) {
     );
     if (playerTargetIndex == -1) {
         room.sendAnnouncement(
-            `Invalid player, make sure the name you entered is correct.`,
+            `Người chơi không hợp lệ, hãy đảm bảo tên bạn đã nhập là chính xác.`,
             player.id,
             errorColor,
             'bold',
@@ -735,7 +735,7 @@ function playerChat(player, message) {
     var playerTarget = playersAll[playerTargetIndex];
     if (player.id == playerTarget.id) {
         room.sendAnnouncement(
-            `You can't send a PM to yourself!`,
+            `Bạn không thể gửi PM cho chính mình!`,
             player.id,
             errorColor,
             'bold',
@@ -743,9 +743,9 @@ function playerChat(player, message) {
         );
         return false;
     }
-    var messageFrom = `?? [PM with ${playerTarget.name}] ${player.name}: ${msgArray.slice(1).join(' ')}`
+    var messageFrom = `🌎 [PM with ${playerTarget.name}] ${player.name}: ${msgArray.slice(1).join(' ')}`
 
-    var messageTo = `?? [PM with ${player.name}] ${player.name}: ${msgArray.slice(1).join(' ')}`
+    var messageTo = `🌎 [PM with ${player.name}] ${player.name}: ${msgArray.slice(1).join(' ')}`
 
     room.sendAnnouncement(
         messageFrom,
@@ -920,7 +920,7 @@ function helpCommand(player, message) {
         var commandName = getCommand(msgArray[0].toLowerCase());
         if (commandName != false && commands[commandName].desc != false)
             room.sendAnnouncement(
-                `\'${commandName}\' command :\n${commands[commandName].desc}`,
+                `\'${commandName}\' Lệnh :\n${commands[commandName].desc}`,
                 player.id,
                 infoColor,
                 'bold',
@@ -928,7 +928,7 @@ function helpCommand(player, message) {
             );
         else
             room.sendAnnouncement(
-                `The command you tried to get information on does not exist. To check all available commands, type \'!help\'`,
+                `Lệnh bạn đã cố gắng lấy thông tin không tồn tại. Để kiểm tra tất cả các lệnh có sẵn, hãy nhập \'! help\'`,
                 player.id,
                 errorColor,
                 'bold',
@@ -963,7 +963,7 @@ function renameCommand(player, message) {
         }
         localStorage.setItem(authArray[player.id][0], JSON.stringify(stats));
         room.sendAnnouncement(
-            `You successfully renamed yourself ${stats.playerName} !`,
+            `Bạn đã đổi tên thành công cho chính mình ${stats.playerName} !`,
             player.id,
             successColor,
             'bold',
@@ -971,7 +971,7 @@ function renameCommand(player, message) {
         );
     } else {
         room.sendAnnouncement(
-            `You haven't played a game in this room yet !`,
+            `❌Bạn chưa chơi trò chơi nào trong phòng này !`,
             player.id,
             errorColor,
             'bold',
@@ -990,7 +990,7 @@ function afkCommand(player, message) {
         if (AFKSet.has(player.id)) {
             if (AFKMinSet.has(player.id)) {
                 room.sendAnnouncement(
-                    `There is a minimum of ${minAFKDuration} minute of AFK time. Don't abuse the command !`,
+                    `🚨Có tối thiểu ${minAFKDuration} phút của thời gian AFK. Đừng lạm dụng mệnh lệnh !`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1011,7 +1011,7 @@ function afkCommand(player, message) {
         } else {
             if (AFKCooldownSet.has(player.id)) {
                 room.sendAnnouncement(
-                    `You can only go AFK every ${AFKCooldown} minutes. Don't abuse the command !`,
+                    `🚨Bạn chỉ có thể AFK mỗi ${AFKCooldown} phút. Đừng lạm dụng mệnh lệnh !`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1058,7 +1058,7 @@ function afkCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `You can't go AFK while in a team !`,
+            `🚨Bạn không thể AFK khi đang ở trong một đội !`,
             player.id,
             errorColor,
             'bold',
@@ -1070,7 +1070,7 @@ function afkCommand(player, message) {
 function afkListCommand(player, message) {
     if (AFKSet.size == 0) {
         room.sendAnnouncement(
-            "?? There's nobody in the AFK list.",
+            "🚨 Không có ai trong danh sách AFK.",
             player.id,
             announcementColor,
             'bold',
@@ -1095,7 +1095,7 @@ function masterCommand(player, message) {
             adminList = adminList.filter((a) => a[0] != authArray[player.id][0]);
             masterList.push(authArray[player.id][0]);
             room.sendAnnouncement(
-                `${player.name} is now a room master !`,
+                `🧑🏻‍💻${player.name} bây giờ là một căn phòng master !`,
                 null,
                 announcementColor,
                 'bold',
@@ -1103,7 +1103,7 @@ function masterCommand(player, message) {
             );
         } else {
             room.sendAnnouncement(
-                `You are a master already !`,
+                `Bạn đã là một Master rồi!`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1131,7 +1131,7 @@ function swapCommand(player, message) {
     if (playSituation == Situation.STOP) {
         swapButton();
         room.sendAnnouncement(
-            '?? Teams swapped !',
+            '☎️đổi đội !',
             null,
             announcementColor,
             'bold',
@@ -1139,7 +1139,7 @@ function swapCommand(player, message) {
         );
     } else {
         room.sendAnnouncement(
-            `Please stop the game before swapping.`,
+            `Vui lòng dừng trò chơi trước khi hoán đổi.`,
             player.id,
             errorColor,
             'bold',
@@ -1197,7 +1197,7 @@ function stadiumCommand(player, message) {
             currentStadium = 'training';
         } else {
             room.sendAnnouncement(
-                `Stadium not recognized.`,
+                `Sân vận động không được công nhận.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1206,7 +1206,7 @@ function stadiumCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Please stop the game before using this command.`,
+            `Vui lòng dừng trò chơi trước khi sử dụng lệnh này.`,
             player.id,
             errorColor,
             'bold',
@@ -1230,7 +1230,7 @@ function muteCommand(player, message) {
                     var muteObj = new MutePlayer(playerMute.name, playerMute.id, authArray[playerMute.id][0]);
                     muteObj.setDuration(minutesMute);
                     room.sendAnnouncement(
-                        `${playerMute.name} has been muted for ${minutesMute} minutes.`,
+                        `🔉${playerMute.name} đã bị tắt tiếng cho ${minutesMute} phút.`,
                         null,
                         announcementColor,
                         'bold',
@@ -1238,7 +1238,7 @@ function muteCommand(player, message) {
                     );
                 } else {
                     room.sendAnnouncement(
-                        `You can't mute an admin.`,
+                        `Bạn đã bị tắt tiếng bởi admin.`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1247,7 +1247,7 @@ function muteCommand(player, message) {
                 }
             } else {
                 room.sendAnnouncement(
-                    `There is no player with such ID in the room. Enter "!help mute" for more information.`,
+                    `Không có người chơi nào có ID như vậy trong phòng. Nhập "!help mute" để biết thêm thông tin.`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1256,7 +1256,7 @@ function muteCommand(player, message) {
             }
         } else {
             room.sendAnnouncement(
-                `Incorrect format for your argument. Enter "!help mute" for more information.`,
+                `Định dạng không chính xác cho đối số của bạn. Nhập "!help mute" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1265,7 +1265,7 @@ function muteCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Wrong number of arguments. Enter "!help mute" for more information.`,
+            `Số đối số sai. Nhập "!help mute" để biết thêm thông tin.`,
             player.id,
             errorColor,
             'bold',
@@ -1285,7 +1285,7 @@ function unmuteCommand(player, message) {
                     var muteObj = muteArray.getByPlayerId(playerUnmute.id);
                     muteObj.remove()
                     room.sendAnnouncement(
-                        `${playerUnmute.name} has been unmuted !`,
+                        `🔈${playerUnmute.name} đã được bật tiếng !`,
                         null,
                         announcementColor,
                         'bold',
@@ -1293,7 +1293,7 @@ function unmuteCommand(player, message) {
                     );
                 } else {
                     room.sendAnnouncement(
-                        `This player isn't muted !`,
+                        `Người chơi không bị tắt tiếng !`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1302,7 +1302,7 @@ function unmuteCommand(player, message) {
                 }
             } else {
                 room.sendAnnouncement(
-                    `There is no player with such ID in the room. Enter "!help unmute" for more information.`,
+                    `Không có người chơi nào có ID như vậy trong phòng. Nhập "!help unmute" để biết thêm thông tin.`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1313,7 +1313,7 @@ function unmuteCommand(player, message) {
             var playerUnmute = muteArray.getById(parseInt(msgArray[0]));
             playerUnmute.remove();
             room.sendAnnouncement(
-                `${playerUnmute.name} has been unmuted !`,
+                `🔈${playerUnmute.name} đã được bật tiếng !`,
                 null,
                 announcementColor,
                 'bold',
@@ -1321,7 +1321,7 @@ function unmuteCommand(player, message) {
             );
         } else {
             room.sendAnnouncement(
-                `Incorrect format for your argument. Enter "!help unmute" for more information.`,
+                `Định dạng không chính xác cho đối số của bạn. Nhập "!help unmute" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1330,7 +1330,7 @@ function unmuteCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Wrong number of arguments. Enter "!help unmute" for more information.`,
+            `Số đối số sai. Nhập "!help unmute" để biết thêm thông tin.`,
             player.id,
             errorColor,
             'bold',
@@ -1342,7 +1342,7 @@ function unmuteCommand(player, message) {
 function muteListCommand(player, message) {
     if (muteArray.list.length == 0) {
         room.sendAnnouncement(
-            "?? There's nobody in the mute list.",
+            "❌Không có ai trong danh sách cấm.",
             player.id,
             announcementColor,
             'bold',
@@ -1371,7 +1371,7 @@ function clearbansCommand(player, message) {
     if (msgArray.length == 0) {
         room.clearBans();
         room.sendAnnouncement(
-            '?? Bans cleared !',
+            '✅Lệnh cấm đã được xóa !',
             null,
             announcementColor,
             'bold',
@@ -1384,7 +1384,7 @@ function clearbansCommand(player, message) {
             room.clearBan(ID);
             if (banList.length != banList.filter((p) => p[1] != ID).length) {
                 room.sendAnnouncement(
-                    `?? ${banList.filter((p) => p[1] == ID)[0][0]} has been unbanned from the room !`,
+                    `✅ ${banList.filter((p) => p[1] == ID)[0][0]} đã được bỏ cấm khỏi phòng !`,
                     null,
                     announcementColor,
                     'bold',
@@ -1392,7 +1392,7 @@ function clearbansCommand(player, message) {
                 );
             } else {
                 room.sendAnnouncement(
-                    `The ID you entered doesn't have a ban associated to. Enter "!help clearbans" for more information.`,
+                    `ID bạn đã nhập không có lệnh cấm liên quan đến. Nhập "!help clearbans" để biết thêm thông tin.`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1402,7 +1402,7 @@ function clearbansCommand(player, message) {
             banList = banList.filter((p) => p[1] != ID);
         } else {
             room.sendAnnouncement(
-                `Invalid ID entered. Enter "!help clearbans" for more information.`,
+                `ID không hợp lệ đã nhập. Nhập "!help clearbans" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1411,7 +1411,7 @@ function clearbansCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Wrong number of arguments. Enter "!help clearbans" for more information.`,
+            `Số đối số sai. Nhập "!help clearbans" để biết thêm thông tin.`,
             player.id,
             errorColor,
             'bold',
@@ -1423,7 +1423,7 @@ function clearbansCommand(player, message) {
 function banListCommand(player, message) {
     if (banList.length == 0) {
         room.sendAnnouncement(
-            "?? There's nobody in the ban list.",
+            "📊Không có ai trong danh sách cấm.",
             player.id,
             announcementColor,
             'bold',
@@ -1448,7 +1448,7 @@ function banListCommand(player, message) {
 function adminListCommand(player, message) {
     if (adminList.length == 0) {
         room.sendAnnouncement(
-            "?? There's nobody in the admin list.",
+            "📊Không có ai trong danh sách quản trị viên.",
             player.id,
             announcementColor,
             'bold',
@@ -1456,7 +1456,7 @@ function adminListCommand(player, message) {
         );
         return false;
     }
-    var cstm = '?? Admin list : ';
+    var cstm = '📊 Admin list : ';
     for (let i = 0; i < adminList.length; i++) {
         cstm += adminList[i][1] + `[${i}], `;
     }
@@ -1483,7 +1483,7 @@ function setAdminCommand(player, message) {
                         room.setPlayerAdmin(playerAdmin.id, true);
                         adminList.push([authArray[playerAdmin.id][0], playerAdmin.name]);
                         room.sendAnnouncement(
-                            `${playerAdmin.name} is now a room admin !`,
+                            `${playerAdmin.name} là admin!`,
                             null,
                             announcementColor,
                             'bold',
@@ -1491,7 +1491,7 @@ function setAdminCommand(player, message) {
                         );
                     } else {
                         room.sendAnnouncement(
-                            `This player is a master already !`,
+                            `Người chơi này đã là master rồi !`,
                             player.id,
                             errorColor,
                             'bold',
@@ -1500,7 +1500,7 @@ function setAdminCommand(player, message) {
                     }
                 } else {
                     room.sendAnnouncement(
-                        `This player is a permanent admin already !`,
+                        `Người chơi này đã là quản trị viên vĩnh viễn!`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1509,7 +1509,7 @@ function setAdminCommand(player, message) {
                 }
             } else {
                 room.sendAnnouncement(
-                    `There is no player with such ID in the room. Enter "!help setadmin" for more information.`,
+                    `Không có người chơi nào có ID như vậy trong phòng. Nhập "!help setadmin" để biết thêm thông tin.`,
                     player.id,
                     errorColor,
                     'bold',
@@ -1518,7 +1518,7 @@ function setAdminCommand(player, message) {
             }
         } else {
             room.sendAnnouncement(
-                `Incorrect format for your argument. Enter "!help setadmin" for more information.`,
+                `Định dạng không chính xác cho đối số của bạn. Nhập "!help setadmin" để biết thêm thông tin.`,
                 player.id,
                 errorColor,
                 'bold',
@@ -1527,7 +1527,7 @@ function setAdminCommand(player, message) {
         }
     } else {
         room.sendAnnouncement(
-            `Wrong number of arguments. Enter "!help setadmin" for more information.`,
+            `Số đối số sai. Nhập "!help setadmin" để biết thêm thông tin.`,
             player.id,
             errorColor,
             'bold',
@@ -1548,7 +1548,7 @@ function removeAdminCommand(player, message) {
                     room.setPlayerAdmin(playerAdmin.id, false);
                     adminList = adminList.filter((a) => a[0] != authArray[playerAdmin.id][0]);
                     room.sendAnnouncement(
-                        `${playerAdmin.name} is not a room admin anymore !`,
+                        `${playerAdmin.name} không còn là quản trị viên phòng nữa !`,
                         null,
                         announcementColor,
                         'bold',
@@ -1556,7 +1556,7 @@ function removeAdminCommand(player, message) {
                     );
                 } else {
                     room.sendAnnouncement(
-                        `This player isn't a permanent admin !`,
+                        `Người chơi này không phải là quản trị viên lâu dài!`,
                         player.id,
                         errorColor,
                         'bold',
@@ -1565,7 +1565,7 @@ function removeAdminCommand(player, message) {
                 }
             } else {
                 room.sendAnnouncement(
-                    `There is no player with such ID in the room. Enter "!help removeadmin" for more information.`,
+                    `Không có người chơi nào có ID như vậy trong phòng. Nhập "!help removeadmin" để biết thêm thông tin.`,
                     player.id,
                     errorColor,
                     'bold',
