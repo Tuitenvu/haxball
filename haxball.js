@@ -5,7 +5,7 @@
 const roomName = '🟣Leauge 4v4🟣';
 const maxPlayers = 12;
 const roomPublic = true;
-const token = ""; // Insert token here
+const token = "thr1.AAAAAGPnwuYhhdF7In7acA.LXxTaBTJ6cI"; // Insert token here
 
 var roomWebhook = ''; // Webhook này được sử dụng để gửi các chi tiết của căn phòng (trò chuyện, tham gia, rời đi); nó phải ở trong một kênh bất hòa riêng tư
 var gameWebhook = ''; // Webhook này được sử dụng để gửi tóm tắt các trò chơi; nó phải nằm trong một kênh bất hòa công khai
