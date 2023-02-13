@@ -1756,8 +1756,8 @@ function endGame(winner) {
     let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
-        `📊 Kiểm soát bóng:  🔴  🔴  ${possessionString}🔵\n` +
-        `📊 Vùng bóng lăn:  🔴  🔴 ${actionString}🔵\n` +
+        `📊 Kiểm soát bóng:🔴🔴${possessionString}🔵\n` +
+        `📊 Vùng bóng lăn:🔴🔴${actionString}🔵\n` +
         `${CSString}`,
         null,
         announcementColor,
