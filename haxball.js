@@ -1180,10 +1180,10 @@ function stadiumCommand(player, message) {
     var msgArray = message.split(/ +/);
     if (gameState == State.STOP) {
         if (['!classic'].includes(msgArray[0].toLowerCase())) {
-            if (JSON.parse(classicMap).name == 'Classic') {
+            if (JSON.parse(futsalMap ).name == 'Classic') {
                 room.setDefaultStadium('Classic');
             } else {
-                room.setCustomStadium(classicMap);
+                room.setCustomStadium(futsalMap );
             }
             currentStadium = 'classic';
         } else if (['!big'].includes(msgArray[0].toLowerCase())) {
