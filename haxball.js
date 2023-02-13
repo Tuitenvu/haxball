@@ -908,7 +908,7 @@ function helpCommand(player, message) {
             if (commandString.slice(commandString.length - 1) == ':') commandString += ` None,`;
             commandString = commandString.substring(0, commandString.length - 1) + '.\n';
         }
-        commandString += "\nTo get information on a specific command, type ''!help <command name>'.";
+        commandString += "\nĐể nhận thông tin về một lệnh cụ thể, hãy nhập ''!help <tên lệnh>'.";
         room.sendAnnouncement(
             commandString,
             player.id,
@@ -1755,8 +1755,8 @@ function endGame(winner) {
     let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
-        `📊 Kiểm soát bóng:  🔴  🔵  ${possessionString}\n` +
-        `📊 Vùng bóng lăn:  🔴  🔵 ${actionString}\n` +
+        `📊 Kiểm soát bóng:  🔴  🔴  ${possessionString}🔵\n` +
+        `📊 Vùng bóng lăn:  🔴  🔴 ${actionString}🔵\n` +
         `${CSString}`,
         null,
         announcementColor,
@@ -1772,7 +1772,7 @@ function activateChooseMode() {
     chooseMode = true;
     slowMode = chooseModeSlowMode;
     room.sendAnnouncement(
-        `🐢 Slow mode changed to choose mode duration of: ${chooseModeSlowMode}s.`,
+        `🐢 Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${chooseModeSlowMode}s.`,
         null,
         announcementColor,
         'bold',
@@ -1786,7 +1786,7 @@ function deactivateChooseMode() {
     if (slowMode != defaultSlowMode) {
         slowMode = defaultSlowMode;
         room.sendAnnouncement(
-            `🐢 Slow mode changed to choose mode duration of: ${defaultSlowMode}s.`,
+            `🐢 Chế độ chậm thay đổi để chọn thời lượng chế độ của: ${defaultSlowMode}s.`,
             null,
             announcementColor,
             'bold',
