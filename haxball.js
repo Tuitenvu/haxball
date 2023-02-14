@@ -2,7 +2,7 @@
 
 /* ROOM */
 
-const roomName = '⚽️ Futsal | 1v1 2v2 3v3 4v4 ⚽️';
+const roomName = '⚽️ Giao luu bong banh⚽️';
 const maxPlayers = 25;
 const roomPublic = true;
 const token = ""; // Insert token here
