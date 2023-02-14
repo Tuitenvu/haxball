@@ -1750,14 +1750,14 @@ function endGame(winner) {
     }
     let possessionRedPct = (possession[0] / (possession[0] + possession[1])) * 100;
     let possessionBluePct = 100 - possessionRedPct;
-    let possessionString = `?? ${possessionRedPct.toFixed(0)}% - ${possessionBluePct.toFixed(0)}% ??`;
+    let possessionString = `🔴 ${possessionRedPct.toFixed(0)}% - ${possessionBluePct.toFixed(0)}% 🔵`;
     let actionRedPct = (actionZoneHalf[0] / (actionZoneHalf[0] + actionZoneHalf[1])) * 100;
     let actionBluePct = 100 - actionRedPct;
     let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
-        `📊 Kiểm soát bóng:🔴🔴${possessionString}🔵\n` +
-        `📊 Vùng bóng lăn:🔴🔴${actionString}🔵\n` +
+        `📊 Kiểm soát bóng:🔴${possessionString}\n` +
+        `📊 Vùng bóng lăn:🔴${actionString}\n` +
         `${CSString}`,
         null,
         announcementColor,
