@@ -4,7 +4,7 @@
 
 /* ROOM */
 
-const roomName = "Room Name";
+const roomName = "⚽ Futsal | 1v1 2v2 3v3 ⚽";
 const botName = "HaxBot";
 const maxPlayers = 12;
 const roomPublic = true;
