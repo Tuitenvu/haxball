@@ -1753,7 +1753,7 @@ function endGame(winner) {
     let possessionString = `🔴 ${possessionRedPct.toFixed(0)}% - ${possessionBluePct.toFixed(0)}% 🔵`;
     let actionRedPct = (actionZoneHalf[0] / (actionZoneHalf[0] + actionZoneHalf[1])) * 100;
     let actionBluePct = 100 - actionRedPct;
-    let actionString = `?? ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% ??`;
+    let actionString = `🔴 ${actionRedPct.toFixed(0)}% - ${actionBluePct.toFixed(0)}% 🔵`;
     let CSString = getCSString(scores);
     room.sendAnnouncement(
         `📊 Kiểm soát bóng:🔴${possessionString}\n` +
